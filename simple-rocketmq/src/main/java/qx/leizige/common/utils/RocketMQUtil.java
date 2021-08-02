@@ -4,7 +4,7 @@ import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.TransactionMQProducer;
-import qx.leizige.rocketmq.test.common.constant.Constants;
+import qx.leizige.common.constant.Constants;
 
 /**
  * @author leizige
