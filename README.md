@@ -1,2 +1,2 @@
 # RocketMQ
-RocketMQ使用
+rocketmq简单使用,springboot集成rocketmq
