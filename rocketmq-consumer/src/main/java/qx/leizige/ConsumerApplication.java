@@ -3,9 +3,13 @@ package qx.leizige;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author leizige
+ * created 2021/08/02
+ */
 @SpringBootApplication
-public class Application {
+public class ConsumerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ConsumerApplication.class, args);
     }
 }
