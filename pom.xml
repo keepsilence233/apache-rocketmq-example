@@ -19,6 +19,8 @@
         <module>simple-rocketmq</module>
         <module>rocketmq-producer</module>
         <module>rocketmq-consumer</module>
+        <module>transaction-message-producer</module>
+        <module>transaction-message-consumer</module>
     </modules>
 
     <properties>
