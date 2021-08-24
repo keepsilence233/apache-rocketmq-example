@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>qx.leizige</groupId>
-    <artifactId>springboot-rocketmq</artifactId>
+    <artifactId>rocketmq</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
