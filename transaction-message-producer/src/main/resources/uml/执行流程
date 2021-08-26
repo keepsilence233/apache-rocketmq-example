@@ -1,0 +1,5 @@
+生产者发送半消息到 MQ Server，暂时不能投递，不会被消费
+半消息发送成功后，生产者这边执行本地事务
+生产者根据本地事务执行结果，向 MQ Server 发送 commit 或 rollback 消息进行二次确认
+如果 MQ Server 接收到的 commit，则将半消息标记为可投递状态，此时消费者就能进行消费；如果收到的是 rollback，则将半消息直接丢弃，不会进行消费
+如果 MQ Server 未收到二次确认消息，MQ Server 则会定时（默认1分钟）向生产者发送回查消息，检查本地事务状态，然后生产者根据本地事务回查结果再次向 MQ Server 发送 commit 或 rollback消息

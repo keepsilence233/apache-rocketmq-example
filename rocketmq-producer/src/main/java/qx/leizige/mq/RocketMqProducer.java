@@ -1,4 +1,4 @@
-package qx.leizige.common.mq;
+package qx.leizige.mq;
 
 import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
