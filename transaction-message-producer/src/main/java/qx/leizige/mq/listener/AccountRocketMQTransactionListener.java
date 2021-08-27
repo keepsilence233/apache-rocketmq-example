@@ -29,10 +29,11 @@ public class AccountRocketMQTransactionListener implements RocketMQLocalTransact
         String transactionId = (String) msg.getHeaders().get(RocketMQHeaders.TRANSACTION_ID);
         if (arg instanceof LocalTransactionExecutor) {
             try {
-                log.info("------> start execute operation ......");
+                log.info("------> start execute operation transactionId = {} ......", transactionId);
                 LocalTransactionExecutor<?> localTransactionExecutor = (LocalTransactionExecutor<?>) arg;
                 localTransactionExecutor.executor();
                 log.info("------> end execute operation ......");
+                localTransactionExecutor.getResult();
                 return RocketMQLocalTransactionState.COMMIT;
             } catch (Exception e) {
                 log.error("本地事务执行异常,错误信息:{}", e.getMessage());

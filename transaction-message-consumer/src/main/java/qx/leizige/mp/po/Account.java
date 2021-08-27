@@ -1,15 +1,15 @@
 package qx.leizige.mp.po;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import qx.leizige.mp.JsonTypeHandler;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 /**
  * @author leizige
@@ -18,12 +18,14 @@ import java.io.Serializable;
 @Builder
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@TableName(value = "tb_mq_transaction_log")
-public class MQTransactionLog extends Model<MQTransactionLog> implements Serializable {
+@TableName(value = "tb_account")
+public class Account extends Model<Account> implements Serializable {
 
     private Long id;
-    private String transactionId;
-    @TableField(typeHandler = JsonTypeHandler.class)
-    private String extInfo;
-
+    /* 银行卡号 */
+    private String cartNo;
+    private String name;
+    /* 余额 */
+    private BigDecimal balance;
+    private LocalDateTime createTime;
 }

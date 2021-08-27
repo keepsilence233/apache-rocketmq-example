@@ -1,4 +1,4 @@
-package qx.leizige.module;
+package qx.leizige.mq.message;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

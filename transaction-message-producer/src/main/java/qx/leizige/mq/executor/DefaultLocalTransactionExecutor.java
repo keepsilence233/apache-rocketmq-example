@@ -39,7 +39,7 @@ public class DefaultLocalTransactionExecutor<R> implements LocalTransactionExecu
     @Override
     public R getResult() throws Exception {
         if (exception != null) {
-            throw new Exception();
+            throw new Exception(exception.getMessage());
         }
         return result;
     }

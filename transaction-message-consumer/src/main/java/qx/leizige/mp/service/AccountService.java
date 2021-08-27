@@ -9,4 +9,8 @@ import java.math.BigDecimal;
  * @author leizige
  */
 public interface AccountService extends IService<Account> {
+
+
+    void addBalanceByCardNo(String cardNo, BigDecimal balance );
+
 }

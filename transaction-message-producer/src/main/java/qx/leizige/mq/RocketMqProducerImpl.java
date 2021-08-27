@@ -2,6 +2,7 @@ package qx.leizige.mq;
 
 import org.apache.rocketmq.client.producer.TransactionSendResult;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
+import org.apache.rocketmq.spring.support.RocketMQHeaders;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,19 @@ public class RocketMqProducerImpl implements RocketMqProducer {
         return sendResult;
     }
 
+    @Override
+    public <T> TransactionSendResult transactionalSend( String tag, T payload,String transactionId, LocalTransactionExecutor<?> executor) {
+        TransactionSendResult sendResult = null;
+        try {
+            log.info("send transactional message, begin. tag {}", tag);
+            sendResult = rocketMqTemplate.sendMessageInTransaction(destination(tag), message(payload, transactionId), executor);
+            log.info("send transactional message, succeed. transaction id {}, message id {}", sendResult.getTransactionId(), sendResult.getMsgId());
+            return sendResult;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sendResult;
+    }
 
     /**
      * destination formats: `topicName:tags`
@@ -48,6 +62,11 @@ public class RocketMqProducerImpl implements RocketMqProducer {
 
     private <T> org.springframework.messaging.Message<T> message(T payload) {
         return MessageBuilder.withPayload(payload)
+                .build();
+    }
+
+    private <T> org.springframework.messaging.Message<T> message(T payload, String transactionId) {
+        return MessageBuilder.withPayload(payload).setHeader(RocketMQHeaders.TRANSACTION_ID, transactionId)
                 .build();
     }
 

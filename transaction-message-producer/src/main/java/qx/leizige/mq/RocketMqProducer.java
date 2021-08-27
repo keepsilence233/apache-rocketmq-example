@@ -13,6 +13,17 @@ public interface RocketMqProducer {
      * @param executor 回调
      * @return 发送结果
      */
-    <T> TransactionSendResult transactionalSend(String tag, T payload, LocalTransactionExecutor<?> executor) ;
+    <T> TransactionSendResult transactionalSend(String tag, T payload, LocalTransactionExecutor<?> executor);
+
+    /**
+     * 发送事务消息
+     *
+     * @param tag           标签
+     * @param payload       消息体
+     * @param transactionId 事务id
+     * @param executor      回调
+     * @return 发送结果
+     */
+    <T> TransactionSendResult transactionalSend(String tag, T payload, String transactionId, LocalTransactionExecutor<?> executor);
 
 }
