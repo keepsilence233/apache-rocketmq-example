@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import qx.leizige.common.MqConstants;
-import qx.leizige.module.Item;
+import qx.leizige.mq.message.Item;
 
 import java.nio.charset.StandardCharsets;
 

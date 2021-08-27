@@ -1,18 +1,15 @@
 package qx.leizige.listener;
 
 import com.alibaba.fastjson.JSON;
-import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.annotation.SelectorType;
 import org.apache.rocketmq.spring.core.RocketMQListener;
-import org.apache.rocketmq.spring.core.RocketMQPushConsumerLifecycleListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import qx.leizige.common.MqConstants;
-import qx.leizige.module.Item;
-import qx.leizige.module.UpdateItem;
+import qx.leizige.mq.message.UpdateItem;
 
 import java.nio.charset.StandardCharsets;
 

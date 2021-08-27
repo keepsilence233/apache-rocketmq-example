@@ -9,9 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import qx.leizige.ProducerApplication;
 import qx.leizige.common.constants.MqConstants;
-import qx.leizige.common.mq.RocketMqProducer;
-import qx.leizige.module.Item;
-import qx.leizige.module.UpdateItem;
+import qx.leizige.mq.RocketMqProducer;
+import qx.leizige.mq.message.Item;
+import qx.leizige.mq.message.UpdateItem;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
