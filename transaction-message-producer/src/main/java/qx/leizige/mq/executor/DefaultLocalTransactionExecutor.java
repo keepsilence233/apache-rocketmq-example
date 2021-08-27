@@ -1,5 +1,6 @@
 package qx.leizige.mq.executor;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public class DefaultLocalTransactionExecutor<R> implements LocalTransactionExecutor<R> {
@@ -23,16 +24,16 @@ public class DefaultLocalTransactionExecutor<R> implements LocalTransactionExecu
     @Override
     public void executor() {
         try {
-            if (runnable != null) {
+            if (Objects.nonNull(runnable)) {
                 runnable.run();
-            } else {
+            }
+            if (Objects.nonNull(supplier)) {
                 result = supplier.get();
             }
         } catch (Exception e) {
             this.exception = e;
         }
     }
-
 
 
     @Override
