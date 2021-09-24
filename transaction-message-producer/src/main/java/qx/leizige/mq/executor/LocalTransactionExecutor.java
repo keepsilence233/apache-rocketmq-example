@@ -1,11 +1,12 @@
 package qx.leizige.mq.executor;
 
-public interface LocalTransactionExecutor<R> {
+public interface LocalTransactionExecutor<R, P> {
 
 
-    void executor();
+	void executor();
 
-    R getResult() throws Exception;
+	void executor(P transactionId);
 
+	R getResult() throws Exception;
 
 }

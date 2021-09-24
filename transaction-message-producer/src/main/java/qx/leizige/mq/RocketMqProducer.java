@@ -13,7 +13,7 @@ public interface RocketMqProducer {
      * @param executor 回调
      * @return 发送结果
      */
-    <T> TransactionSendResult transactionalSend(String tag, T payload, LocalTransactionExecutor<?> executor);
+    <T> TransactionSendResult transactionalSend(String tag, T payload, LocalTransactionExecutor<?,?> executor);
 
     /**
      * 发送事务消息
@@ -24,6 +24,6 @@ public interface RocketMqProducer {
      * @param executor      回调
      * @return 发送结果
      */
-    <T> TransactionSendResult transactionalSend(String tag, T payload, String transactionId, LocalTransactionExecutor<?> executor);
+    <T> TransactionSendResult transactionalSend(String tag, T payload, String transactionId, LocalTransactionExecutor<?,?> executor);
 
 }
