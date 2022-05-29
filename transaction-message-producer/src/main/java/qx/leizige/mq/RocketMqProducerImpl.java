@@ -3,6 +3,7 @@ package qx.leizige.mq;
 import org.apache.rocketmq.client.producer.TransactionSendResult;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.apache.rocketmq.spring.support.RocketMQHeaders;
+import org.apache.rocketmq.spring.support.RocketMQUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import qx.leizige.common.constants.MqConstants;
@@ -69,7 +70,7 @@ public class RocketMqProducerImpl implements RocketMqProducer {
 	}
 
 	private <T> org.springframework.messaging.Message<T> message(T payload, String transactionId) {
-		return MessageBuilder.withPayload(payload).setHeader(RocketMQHeaders.TRANSACTION_ID, transactionId)
+		return MessageBuilder.withPayload(payload).setHeader(RocketMQUtil.toRocketHeaderKey(RocketMQHeaders.TRANSACTION_ID), transactionId)
 				.build();
 	}
 
